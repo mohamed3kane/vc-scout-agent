@@ -1,0 +1,132 @@
+[
+  {
+    "company": "noirdoc",
+    "url": "https://www.producthunt.com/products/noirdoc",
+    "scout_card": {
+      "sector": "Other",
+      "what_it_does": "Unable to determine product functionality due to lack of description provided.",
+      "target_customer": "Unknown",
+      "investor_angle": "Cannot assess investment potential without product information.",
+      "red_flags": "No product description available - either stealth mode, very early stage, or lack of clear messaging which is a fundamental concern for any startup.",
+      "verdict": "Pass",
+      "verdict_rationale": "Insufficient information to evaluate the opportunity; a startup that cannot articulate what it does is not ready for investment consideration."
+    }
+  },
+  {
+    "company": "Picsart CLI ",
+    "url": "https://www.producthunt.com/products/picsart",
+    "scout_card": {
+      "sector": "DevTools",
+      "what_it_does": "A command-line interface tool that allows developers to access Picsart's image editing and AI-powered creative features directly from the terminal or integrate them into automated workflows.",
+      "target_customer": "Developers, DevOps teams, and companies needing programmatic batch image processing and editing capabilities.",
+      "investor_angle": "Leverages Picsart's existing 150M+ MAU brand and AI capabilities to capture developer/enterprise market with usage-based revenue potential.",
+      "red_flags": "Picsart CLI appears to be a feature extension of an existing company rather than a standalone startup, limiting independent growth potential and exit options.",
+      "verdict": "Watch",
+      "verdict_rationale": "Interesting developer tooling play from an established consumer brand, but unclear if this is a standalone venture or just a product feature worth monitoring for enterprise traction signals."
+    }
+  },
+  {
+    "company": "Open Wearables",
+    "url": "https://www.producthunt.com/products/open-wearables",
+    "scout_card": {
+      "sector": "Healthcare",
+      "what_it_does": "Open Wearables likely provides an open-source or interoperable platform for health and fitness wearable device data aggregation and analysis.",
+      "target_customer": "Healthcare providers, wellness companies, researchers, or enterprises needing unified wearable data integration.",
+      "investor_angle": "Growing wearable market with fragmented data ecosystems creates opportunity for an interoperability layer; potential platform play with recurring revenue.",
+      "red_flags": "No product description provided makes it impossible to assess actual product, traction, or differentiation from competitors like Terra API or Human API.",
+      "verdict": "Watch",
+      "verdict_rationale": "The wearables data space has real tailwinds, but insufficient information about the actual product and team makes this impossible to evaluate properly."
+    }
+  },
+  {
+    "company": "Plurai",
+    "url": "https://www.producthunt.com/products/plurai",
+    "scout_card": {
+      "sector": "AI Infrastructure",
+      "what_it_does": "Plurai appears to be an AI-focused platform, but without a public description available, the specific functionality cannot be determined.",
+      "target_customer": "Unable to determine without product details - likely developers or enterprises based on naming convention.",
+      "investor_angle": "AI infrastructure continues to attract significant investment as companies build foundational tools for the AI ecosystem.",
+      "red_flags": "No public product description or clear value proposition available makes it impossible to evaluate the actual opportunity.",
+      "verdict": "Pass",
+      "verdict_rationale": "Insufficient publicly available information to evaluate the company's product, market fit, or differentiation."
+    }
+  },
+  {
+    "company": "Gro v2",
+    "url": "https://www.producthunt.com/products/gro-2",
+    "scout_card": {
+      "sector": "Other",
+      "what_it_does": "Unable to determine from the provided information as no product description was given.",
+      "target_customer": "Unknown",
+      "investor_angle": "Insufficient information to assess investment potential.",
+      "red_flags": "No product description or details provided, making it impossible to evaluate the business model, traction, or market opportunity.",
+      "verdict": "Pass",
+      "verdict_rationale": "Cannot evaluate a startup with no description, website, or any substantive information about what it does."
+    }
+  },
+  {
+    "company": "CodeHealth MCP Server by CodeScene",
+    "url": "https://www.producthunt.com/products/codescene-codehealth-mcp-server",
+    "scout_card": {
+      "sector": "DevTools",
+      "what_it_does": "Provides an MCP server that integrates CodeScene's code health analysis capabilities into AI coding assistants and IDE workflows.",
+      "target_customer": "Software development teams and enterprises using AI-assisted coding tools who want to maintain code quality standards.",
+      "investor_angle": "Rides the MCP protocol wave enabling AI agents to access specialized tools, positioned at the intersection of code quality and AI-assisted development which are both high-growth areas.",
+      "red_flags": "CodeScene is an established company (not a startup), so this is a feature extension rather than a new venture, limiting traditional VC investment opportunity.",
+      "verdict": "Watch",
+      "verdict_rationale": "Strong product-market fit concept but appears to be a feature from an existing player rather than a standalone investable startup opportunity."
+    }
+  },
+  {
+    "company": "UXPin Forge",
+    "url": "https://www.producthunt.com/products/uxpin",
+    "scout_card": {
+      "sector": "DevTools",
+      "what_it_does": "UXPin Forge is a design-to-code tool that allows designers to create production-ready React components directly in a visual interface, bridging the gap between design and development.",
+      "target_customer": "Product teams, design teams, and frontend developers at mid-size to enterprise companies looking to streamline their design-to-development workflow.",
+      "investor_angle": "Addresses the persistent designer-developer handoff problem with a code-based design approach, potentially capturing value in the growing design systems market as companies prioritize consistency and speed.",
+      "red_flags": "Entering a crowded space with established players like Figma (with Dev Mode), Framer, and Webflow; differentiation and switching costs may be challenging.",
+      "verdict": "Watch",
+      "verdict_rationale": "Interesting technical approach to a real problem, but needs to prove it can carve out defensible market share against well-funded incumbents who are rapidly adding similar capabilities."
+    }
+  },
+  {
+    "company": "ZenTrack",
+    "url": "https://www.producthunt.com/products/zentrack-finances-streaks-health",
+    "scout_card": {
+      "sector": "Other",
+      "what_it_does": "Unable to determine product functionality as no description was provided.",
+      "target_customer": "Unknown - insufficient information",
+      "investor_angle": "Cannot assess investment potential without product details.",
+      "red_flags": "No product description provided, which suggests either stealth mode, incomplete launch, or lack of clear value proposition.",
+      "verdict": "Pass",
+      "verdict_rationale": "Insufficient information to evaluate the opportunity; a company without a clear description cannot be properly assessed for investment."
+    }
+  },
+  {
+    "company": "Plannotator",
+    "url": "https://www.producthunt.com/products/plannotator",
+    "scout_card": {
+      "sector": "Other",
+      "what_it_does": "Unable to determine product functionality as no description was provided.",
+      "target_customer": "Unknown due to missing product information.",
+      "investor_angle": "Cannot assess investment potential without understanding the product or market.",
+      "red_flags": "No product description provided, making it impossible to evaluate the opportunity or team's communication ability.",
+      "verdict": "Pass",
+      "verdict_rationale": "Insufficient information to conduct any meaningful evaluation of this startup."
+    }
+  },
+  {
+    "company": "KarmaBox",
+    "url": "https://www.producthunt.com/products/karmabox-2",
+    "scout_card": {
+      "sector": "Other",
+      "what_it_does": "Unable to determine product function due to lack of description provided.",
+      "target_customer": "Unknown",
+      "investor_angle": "Cannot assess without product details.",
+      "red_flags": "No product description available - either stealth mode or lack of clarity on value proposition.",
+      "verdict": "Pass",
+      "verdict_rationale": "Insufficient information to evaluate the opportunity; cannot make an informed investment decision."
+    }
+  }
+]

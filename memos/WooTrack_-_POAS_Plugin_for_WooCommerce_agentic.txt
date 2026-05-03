@@ -1,0 +1,118 @@
+INVESTMENT MEMO (AGENTIC): WooTrack - POAS Plugin for WooCommerce
+Generated: 2026-05-01
+============================================================
+
+Based on my research, I now have sufficient information to compile the investment memo. Let me synthesize the findings:
+
+---
+
+# INVESTMENT MEMO: WooTrack - POAS Plugin for WooCommerce
+
+**Date:** Investment Analysis  
+**Sector:** SaaS / E-commerce Analytics  
+**Stage:** Early-stage (appears bootstrapped/pre-seed)
+
+---
+
+## MARKET
+
+**Size & Growth:**
+- Marketing Attribution Software market valued at **$4.74B in 2024**, projected to grow at ~15% CAGR through 2030
+- Privacy-compliant attribution solutions specifically growing at **~10% annually**, adding $1.2B by 2030
+- WooCommerce ecosystem: **6.6M+ websites globally**, with ~37% market share in e-commerce platforms; ~1.8M stores in US alone
+
+**Dynamics:**
+- iOS 14.5 ATT framework disrupted traditional IDFA-based tracking, creating urgent demand for first-party, server-side attribution solutions
+- Shift from vanity metrics (ROAS) to profit-focused metrics (POAS) gaining traction among sophisticated e-commerce operators
+- WooCommerce merchants historically underserved compared to Shopify ecosystem (where Triple Whale, Northbeam dominate)
+
+---
+
+## COMPETITION
+
+| Competitor | Funding | Focus | Differentiation vs WooTrack |
+|------------|---------|-------|----------------------------|
+| **Triple Whale** | $25M Series B (NFX, Elephant, Shopify) | Shopify-first attribution, creative analytics, affiliate tracking | Much larger, Shopify-native, broader feature set; limited WooCommerce support |
+| **ProfitMetrics.io** | $3M seed; ~$6.5M ARR | POAS pioneer; multi-platform | Direct competitor with POAS trademark; more mature, Denmark-based |
+| **Northbeam** | $15M Series A | ML-powered MMM + MTA for DTC | Enterprise-focused, higher price point, Shopify-centric |
+| **Polar Analytics** | $30.3M total (incl. $18M Series A) | BI + Attribution combined | Broader analytics play, approaching profitability |
+
+**WooTrack Differentiation:**
+- WooCommerce-native (purpose-built plugin vs. multi-platform tools)
+- Google Ads automation + POAS tracking combined
+- Simpler, lower-cost entry point for SMB merchants
+- WordPress/WooCommerce ecosystem lock-in
+
+---
+
+## FOUNDER SIGNALS
+
+**Critical Gap: Unable to identify founders or leadership team** through extensive search.
+
+- No LinkedIn presence discovered for "WooTrack" as a company
+- No press coverage, funding announcements, or founder interviews found
+- No Crunchbase/Dealroom/AngelList profile identified
+- Website provides product information but team/about page not indexed in search results
+
+**Risk Assessment:** This is a significant red flag for investment consideration. Without founder visibility, cannot assess:
+- Relevant domain expertise (e-commerce, ad tech, WordPress ecosystem)
+- Prior startup experience
+- Technical depth
+- Commitment level (side project vs. full-time venture)
+
+---
+
+## TRACTION
+
+**Confirmed Signals:**
+- Product is live with 14-day free trial
+- Trustpilot presence: **4-star rating with only 3 reviews** (very early stage)
+- Positive user testimonials on website citing Google Ads automation value
+- Product positions as SaaS plugin (recurring revenue model)
+
+**Unknown/Unconfirmed:**
+- Active installs/users (not listed on WordPress.org plugin directory in standard format)
+- Monthly Recurring Revenue (MRR)
+- Customer growth rate
+- Churn metrics
+- Pricing structure not publicly detailed
+
+**Press/Media:** No meaningful press coverage found. No funding announcements. Minimal digital footprint beyond product website and basic review presence.
+
+---
+
+## RISKS
+
+### 1. **Platform Dependency & Fragility**
+Single-platform risk (WooCommerce + Google Ads only). WooCommerce could deprecate APIs, Google could change Ads API access, or either could build competing native functionality. The POAS approach itself could become commoditized or built into Google Ads natively.
+
+### 2. **Well-Funded Competition in Adjacent Markets**
+Triple Whale ($25M), Northbeam ($15M), Polar ($30M), and ProfitMetrics ($3M) are all well-capitalized. If any of these players decides to aggressively pursue WooCommerce (currently Shopify-focused), WooTrack would face existential competitive pressure with limited resources to respond.
+
+### 3. **Founder/Team Opacity**
+Cannot diligence team backgrounds, domain expertise, or commitment level. For an early-stage investment, the team is the primary asset—this represents an unacceptable information gap.
+
+**Additional Structural Risks:**
+- Narrow feature set (Google Ads only, not Meta/TikTok/etc.)
+- Low switching costs for merchants
+- ProfitMetrics owns POAS® trademark, potential IP risk
+
+---
+
+## VERDICT
+
+# **PASS**
+
+---
+
+## RATIONALE
+
+While WooTrack addresses a real gap (WooCommerce merchants lack the sophisticated attribution tools that Shopify stores enjoy via Triple Whale/Northbeam), the investment case fails on three critical dimensions:
+
+1. **Founder opacity is disqualifying** — we cannot identify, diligence, or assess the team building this product, which is the primary value driver at this stage.
+
+2. **Defensibility concerns are substantial** — this is a narrow plugin play in a market where well-capitalized competitors (Triple Whale, ProfitMetrics, Polar) could expand to WooCommerce with minimal effort, and where Google itself could add POAS-style reporting natively.
+
+3. **Traction signals are too thin** — only 3 Trustpilot reviews and no discoverable user/revenue metrics suggest this is either very early or struggling to gain momentum in a market that should have organic demand post-iOS14.
+
+**Recommendation:** If founders emerge with strong backgrounds (ex-Google Ads, successful e-commerce exits, deep WordPress ecosystem experience) and demonstrate meaningful traction ($100K+ ARR, 500+ active merchants), this could be worth revisiting as a **Watch** candidate for a potential seed check into the WooCommerce ecosystem thesis.

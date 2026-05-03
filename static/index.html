@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VC Scout & Analyst Agent</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0a0a0f; color: #e0e0e0; min-height: 100vh; }
+  header { padding: 24px 40px; border-bottom: 1px solid #1e1e2e; display: flex; align-items: center; justify-content: space-between; background: #0d0d1a; }
+  header h1 { font-size: 20px; font-weight: 600; color: #fff; letter-spacing: -0.3px; }
+  header p { font-size: 13px; color: #666; margin-top: 2px; }
+  .tabs { display: flex; gap: 4px; background: #111; padding: 4px; border-radius: 8px; }
+  .tab { padding: 7px 16px; border-radius: 6px; font-size: 13px; cursor: pointer; color: #666; border: none; background: none; transition: all 0.15s; }
+  .tab.active { background: #1e1e2e; color: #fff; }
+  main { padding: 32px 40px; max-width: 1200px; margin: 0 auto; }
+  .page { display: none; }
+  .page.active { display: block; }
+  .fetch-bar { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .btn { padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; border: none; transition: all 0.15s; }
+  .btn-primary { background: #4f46e5; color: #fff; }
+  .btn-primary:hover { background: #4338ca; }
+  .btn-primary:disabled { background: #2d2a5e; color: #666; cursor: not-allowed; }
+  .btn-approve { background: #064e3b; color: #34d399; padding: 6px 14px; font-size: 12px; border: none; border-radius: 8px; cursor: pointer; }
+  .btn-approve:hover { background: #065f46; }
+  .btn-skip { background: #1f1f1f; color: #666; padding: 6px 14px; font-size: 12px; border: none; border-radius: 8px; cursor: pointer; }
+  .btn-skip:hover { background: #2a2a2a; color: #999; }
+  .btn-memo { background: #1e3a5f; color: #60a5fa; padding: 6px 14px; font-size: 12px; border: none; border-radius: 8px; cursor: pointer; }
+  .btn-memo:hover { background: #1e4a7f; }
+  .btn-secondary { background: #1e1e2e; color: #aaa; padding: 6px 14px; font-size: 12px; border: none; border-radius: 8px; cursor: pointer; }
+  .btn-secondary:hover { background: #2e2e4e; color: #fff; }
+  .status-msg { font-size: 13px; color: #666; }
+  .thesis-box { margin-bottom: 24px; }
+  .thesis-box label { font-size: 11px; color: #444; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px; }
+  .thesis-box textarea { width: 100%; background: #0d0d1a; border: 1px solid #1e1e2e; border-radius: 8px; padding: 12px; color: #ccc; font-size: 13px; line-height: 1.5; resize: vertical; min-height: 70px; font-family: inherit; }
+  .thesis-box textarea:focus { outline: none; border-color: #4f46e5; }
+  .cards-grid { display: flex; flex-direction: column; gap: 12px; }
+  .card { background: #0d0d1a; border: 1px solid #1e1e2e; border-radius: 12px; padding: 20px 24px; transition: border-color 0.15s; }
+  .card:hover { border-color: #2e2e4e; }
+  .card.approved { border-color: #064e3b; background: #0a1a14; }
+  .card.skipped { opacity: 0.4; }
+  .card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+  .card-title { font-size: 15px; font-weight: 600; color: #fff; }
+  .card-url { font-size: 12px; color: #4f46e5; text-decoration: none; margin-top: 2px; display: block; }
+  .card-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+  .verdict-badge { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; }
+  .verdict-Interesting { background: #064e3b; color: #34d399; }
+  .verdict-Watch { background: #1c1400; color: #f59e0b; }
+  .verdict-Pass { background: #1a0a0a; color: #ef4444; }
+  .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+  .card-field label { font-size: 11px; color: #444; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 3px; }
+  .card-field p { font-size: 13px; color: #aaa; line-height: 1.5; }
+  .sector-tag { display: inline-block; background: #1e1e2e; color: #818cf8; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; margin-bottom: 10px; }
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 100; align-items: center; justify-content: center; padding: 40px; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: #0d0d1a; border: 1px solid #1e1e2e; border-radius: 16px; width: 100%; max-width: 780px; max-height: 80vh; overflow-y: auto; padding: 32px; }
+  .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .modal-header h2 { font-size: 18px; font-weight: 600; color: #fff; }
+  .modal-close { background: none; border: none; color: #666; font-size: 20px; cursor: pointer; padding: 4px 8px; }
+  .modal-close:hover { color: #fff; }
+  .mode-selector { display: flex; gap: 8px; margin-bottom: 20px; }
+  .mode-btn { padding: 7px 16px; border-radius: 6px; font-size: 13px; cursor: pointer; border: 1px solid #1e1e2e; background: none; color: #666; transition: all 0.15s; }
+  .mode-btn.active { background: #1e3a5f; color: #60a5fa; border-color: #1e3a5f; }
+  .memo-content { background: #060610; border: 1px solid #1a1a2e; border-radius: 8px; padding: 20px; font-size: 13px; line-height: 1.8; color: #d0d0d0; min-height: 200px; }
+  .loading { display: flex; align-items: center; gap: 10px; color: #666; font-size: 13px; padding: 20px 0; }
+  .spinner { width: 16px; height: 16px; border: 2px solid #1e1e2e; border-top-color: #4f46e5; border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .history-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .history-table th { text-align: left; padding: 10px 14px; color: #444; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #1e1e2e; }
+  .history-table td { padding: 12px 14px; border-bottom: 1px solid #0f0f1a; color: #aaa; vertical-align: top; }
+  .status-pill { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 500; }
+  .status-Approve { background: #064e3b; color: #34d399; }
+  .status-Skip { background: #1f1f1f; color: #666; }
+  .status-Pending { background: #1c1400; color: #f59e0b; }
+  .empty-state { text-align: center; padding: 60px; color: #444; }
+  .empty-state h3 { font-size: 16px; margin-bottom: 8px; color: #666; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>VC Scout & Analyst Agent</h1>
+    <p>AI-powered deal sourcing and investment memo generation</p>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="showPage('scout', this)">Scout</button>
+    <button class="tab" onclick="showPage('history', this)">History</button>
+  </div>
+</header>
+<main>
+  <div id="page-scout" class="page active">
+    <div class="thesis-box">
+      <label>Investment Thesis (optional)</label>
+      <textarea id="investment-thesis" placeholder="e.g. I focus on pre-seed B2B SaaS, devtools, and fintech. I prefer technical founders with domain expertise. Typical check size $25K-$100K."></textarea>
+    </div>
+    <div class="fetch-bar">
+      <button class="btn btn-primary" id="fetch-btn" onclick="fetchStartups()">Fetch Latest from Product Hunt</button>
+      <span class="status-msg" id="fetch-status"></span>
+    </div>
+    <div class="cards-grid" id="cards-container">
+      <div class="empty-state">
+        <h3>No startups loaded</h3>
+        <p>Click Fetch Latest to pull today's Product Hunt launches</p>
+      </div>
+    </div>
+  </div>
+  <div id="page-history" class="page">
+    <div class="fetch-bar">
+      <button class="btn btn-primary" onclick="loadHistory()">Refresh History</button>
+      <span class="status-msg" id="history-status"></span>
+    </div>
+    <div id="history-container">
+      <div class="empty-state"><h3>No history yet</h3><p>Approved and skipped startups will appear here</p></div>
+    </div>
+  </div>
+</main>
+<div class="modal-overlay" id="memo-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-title">Investment Memo</h2>
+      <button class="modal-close" onclick="closeModal()">x</button>
+    </div>
+    <div class="mode-selector">
+      <button class="mode-btn active" id="mode-agentic" onclick="setMode('agentic')">Agentic</button>
+      <button class="mode-btn" id="mode-rag" onclick="setMode('rag')">RAG</button>
+    </div>
+    <button class="btn btn-primary" id="run-memo-btn" onclick="runMemo()" style="margin-bottom:16px">Generate Memo</button>
+    <div id="memo-output" class="memo-content" style="color:#444">Select a mode and click Generate Memo</div>
+  </div>
+</div>
+<div class="modal-overlay" id="history-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="history-modal-title">Saved Memo</h2>
+      <button class="modal-close" onclick="closeHistoryModal()">x</button>
+    </div>
+    <div id="history-memo-output" class="memo-content" style="color:#444">No memo saved yet.</div>
+  </div>
+</div>
+<script>
+  let startups = [];
+  let currentCompany = null;
+  let selectedMode = 'agentic';
+
+  function showPage(name, el) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    el.classList.add('active');
+    if (name === 'history') loadHistory();
+  }
+
+  async function fetchStartups() {
+    const btn = document.getElementById('fetch-btn');
+    const status = document.getElementById('fetch-status');
+    const thesis = document.getElementById('investment-thesis').value;
+    btn.disabled = true;
+    btn.textContent = 'Fetching...';
+    status.textContent = 'Pulling Product Hunt feed and generating scout cards...';
+    try {
+      const res = await fetch('/api/fetch-startups?thesis=' + encodeURIComponent(thesis));
+      const data = await res.json();
+      if (data.success) {
+        startups = data.startups;
+        renderCards();
+        status.textContent = startups.length + ' new startups loaded';
+      } else {
+        status.textContent = 'Error: ' + data.error;
+      }
+    } catch(e) {
+      status.textContent = 'Error: ' + e.message;
+    }
+    btn.disabled = false;
+    btn.textContent = 'Fetch Latest from Product Hunt';
+  }
+
+  function renderMarkdown(text) {
+    return text
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/^---$/gm, '<hr style="border-color:#1e1e2e;margin:12px 0">')
+      .replace(/^### (.+)$/gm, '<h3 style="color:#818cf8;font-size:13px;font-weight:600;margin:16px 0 6px;text-transform:uppercase;letter-spacing:0.5px">$1</h3>')
+      .replace(/^## (.+)$/gm, '<h2 style="color:#60a5fa;font-size:15px;font-weight:600;margin:20px 0 8px;border-bottom:1px solid #1e1e2e;padding-bottom:6px">$1</h2>')
+      .replace(/^# (.+)$/gm, '<h1 style="color:#fff;font-size:18px;font-weight:700;margin:0 0 16px">$1</h1>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong style="color:#e0e0e0">$1</strong>')
+      .replace(/^- (.+)$/gm, '<div style="display:flex;gap:8px;margin:4px 0"><span style="color:#4f46e5;flex-shrink:0">\u2022</span><span>$1</span></div>')
+      .replace(/\n\n/g, '<div style="margin:8px 0"></div>')
+      .replace(/\n/g, '<br>');
+  }
+
+  function renderCards() {
+    const container = document.getElementById('cards-container');
+    if (!startups.length) {
+      container.innerHTML = '<div class="empty-state"><h3>No new startups found</h3><p>All recent launches have already been analyzed</p></div>';
+      return;
+    }
+    container.innerHTML = startups.map((s, i) => `
+      <div class="card ${s.status === 'Approve' ? 'approved' : s.status === 'Skip' ? 'skipped' : ''}" id="card-${i}">
+        <div class="card-header">
+          <div>
+            <span class="sector-tag">${s.sector}</span>
+            <div class="card-title">${s.company}</div>
+            <a class="card-url" href="${s.url}" target="_blank">${s.url}</a>
+          </div>
+          <div class="card-actions">
+            <span class="verdict-badge verdict-${s.verdict}">${s.verdict}</span>
+            ${s.status === 'Approve'
+              ? `<button class="btn-memo" onclick="openModal(${i})">Generate Memo</button>`
+              : s.status === 'Skip'
+              ? `<span style="font-size:12px;color:#444">Skipped</span>`
+              : `<button class="btn-approve" onclick="updateStatus(${i}, 'Approve')">Approve</button>
+                 <button class="btn-skip" onclick="updateStatus(${i}, 'Skip')">Skip</button>`
+            }
+          </div>
+        </div>
+        <div class="card-grid">
+          <div class="card-field"><label>What it does</label><p>${s.what_it_does}</p></div>
+          <div class="card-field"><label>Target customer</label><p>${s.target_customer}</p></div>
+          <div class="card-field"><label>Investor angle</label><p>${s.investor_angle}</p></div>
+          <div class="card-field"><label>Red flags</label><p>${s.red_flags}</p></div>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#555"><strong style="color:#666">Rationale:</strong> ${s.verdict_rationale}</div>
+      </div>
+    `).join('');
+  }
+
+  async function updateStatus(index, status) {
+    const startup = startups[index];
+    startup.status = status;
+    try {
+      await fetch('/api/update-status', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({company: startup.company, status})
+      });
+    } catch(e) { console.error(e); }
+    renderCards();
+  }
+
+  function openModal(index) {
+    currentCompany = startups[index];
+    document.getElementById('modal-title').textContent = 'Investment Memo - ' + currentCompany.company;
+    document.getElementById('memo-output').textContent = 'Select a mode and click Generate Memo';
+    document.getElementById('memo-modal').classList.add('open');
+  }
+
+  function closeModal() {
+    document.getElementById('memo-modal').classList.remove('open');
+    currentCompany = null;
+  }
+
+  function setMode(mode) {
+    selectedMode = mode;
+    document.getElementById('mode-agentic').classList.toggle('active', mode === 'agentic');
+    document.getElementById('mode-rag').classList.toggle('active', mode === 'rag');
+  }
+
+  async function runMemo() {
+    if (!currentCompany) return;
+    const output = document.getElementById('memo-output');
+    const btn = document.getElementById('run-memo-btn');
+    const thesis = document.getElementById('investment-thesis').value;
+    btn.disabled = true;
+    btn.textContent = 'Generating...';
+    output.innerHTML = '<div class="loading"><div class="spinner"></div>Running ' + selectedMode + ' analyst - this takes 30-60 seconds...</div>';
+    try {
+      const res = await fetch('/api/generate-memo', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          company: currentCompany.company,
+          mode: selectedMode,
+          thesis: thesis,
+          sector: currentCompany.sector,
+          what_it_does: currentCompany.what_it_does,
+          investor_angle: currentCompany.investor_angle,
+          red_flags: currentCompany.red_flags
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        output.innerHTML = renderMarkdown(data.memo);
+      } else {
+        output.textContent = 'Error: ' + data.error;
+      }
+    } catch(e) {
+      output.textContent = 'Error: ' + e.message;
+    }
+    btn.disabled = false;
+    btn.textContent = 'Generate Memo';
+  }
+
+  async function loadHistory() {
+    const status = document.getElementById('history-status');
+    status.textContent = 'Loading...';
+    try {
+      const res = await fetch('/api/history');
+      const data = await res.json();
+      if (data.success && data.history.length) {
+        document.getElementById('history-container').innerHTML = `
+          <table class="history-table">
+            <thead><tr><th>Company</th><th>Sector</th><th>Verdict</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+            <tbody>${data.history.map((r, i) => {
+              const co = (r.Company||'').replace(/"/g,'&quot;');
+              return '<tr>' +
+                '<td><div style="color:#fff;font-weight:500">' + (r.Company||'') + '</div><a href="' + (r.URL||'') + '" target="_blank" style="color:#4f46e5;font-size:11px">' + (r.URL||'') + '</a></td>' +
+                '<td>' + (r.Sector||'') + '</td>' +
+                '<td><span class="verdict-badge verdict-' + (r.Verdict||'') + '">' + (r.Verdict||'') + '</span></td>' +
+                '<td><span class="status-pill status-' + (r.Status||'') + '">' + (r.Status||'') + '</span></td>' +
+                '<td>' + (r.Date||'') + '</td>' +
+                '<td style="display:flex;gap:6px;flex-wrap:wrap">' +
+                  (r.Memo ? '<button class="btn-memo" onclick="viewHistoryMemo(\"' + co + '\")">View Memo</button>' : '') +
+                  (r.Status !== 'Approve' ? '<button class="btn-approve" onclick="reapprove(\"' + co + '\")">Approve</button>' : '') +
+                '</td>' +
+              '</tr>';
+            }).join('')}
+            </tbody>
+          </table>`;
+        status.textContent = data.history.length + ' entries';
+      } else {
+        status.textContent = 'No history found';
+      }
+    } catch(e) {
+      status.textContent = 'Error: ' + e.message;
+    }
+  }
+
+  function viewHistoryMemo(company, memo) {
+    document.getElementById('history-modal-title').textContent = 'Memo - ' + company;
+    document.getElementById('history-memo-output').innerHTML = renderMarkdown(memo);
+    document.getElementById('history-modal').classList.add('open');
+  }
+
+  function closeHistoryModal() {
+    document.getElementById('history-modal').classList.remove('open');
+  }
+
+  async function reapprove(companyName) {
+    try {
+      await fetch('/api/update-status', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({company: companyName, status: 'Approve'})
+      });
+      loadHistory();
+    } catch(e) { console.error(e); }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+INVESTMENT MEMO (AGENTIC): VideoOS by Jupitrr AI
+Generated: 2026-05-01
+============================================================
+
+Now I have enough information to compile a comprehensive investment memo.
+
+---
+
+# INVESTMENT MEMO: Jupitrr AI (VideoOS)
+
+## MARKET
+
+**Market Size:** The global AI video market was valued at **$3.86B in 2024** and is projected to reach **$42.29B by 2033**, growing at a **32.2% CAGR**. The broader creator economy is valued at approximately **$181.8B in 2025**, with the US accounting for 91% of that market.
+
+**Growth Dynamics:** Explosive demand for short-form video content across platforms (TikTok, Instagram Reels, YouTube Shorts, LinkedIn) is driving need for faster, cheaper video production. Marketing teams and creators face a "content treadmill" requiring high-volume output. AI automation is becoming table stakes for video production workflows.
+
+**Key Trends:** Shift from manual editing to AI-assisted/automated editing; increasing enterprise adoption of video for marketing; commoditization of basic video tools driving demand for specialized, higher-value automation.
+
+---
+
+## COMPETITION
+
+| Competitor | Funding/Valuation | Differentiation |
+|------------|-------------------|-----------------|
+| **Runway AI** | $315M raised, **$5.3B valuation** | Generative AI video (text-to-video, Gen-2/Gen-3 models). Premium creative tool targeting filmmakers and high-end production. |
+| **Descript** | $50M+ raised (backed by OpenAI), **~$55M ARR** | Full-suite audio/video editing with transcription. Stronger in podcasting and longer-form content. Word-based editing paradigm. |
+| **OpusClip** | $32M Series A (SoftBank), **$215M valuation** | Direct competitor in AI clipping/B-roll. Focuses on long-to-short video repurposing. Similar target market. |
+| **CapCut** (ByteDance) | ~$1.3B revenue (2024), **1B+ downloads** | Free/freemium mass-market tool. Dominates consumer video editing. Facing US regulatory risk (TikTok ban). |
+
+**Jupitrr Differentiation:** Positioned as "VideoOS" — an all-in-one pipeline tool (plan, script, edit, publish) for marketing teams rather than individual creators. Auto-generated B-roll is core feature. Lighter-weight than Runway (not generative video), more workflow-focused than OpusClip.
+
+**Concern:** OpusClip is the closest competitor with significant funding lead ($32M vs. unfunded) and similar feature set.
+
+---
+
+## FOUNDER SIGNALS
+
+| Founder | Role | Background |
+|---------|------|------------|
+| **Harris Cheng** | Co-founder & CEO | 2x founder; previously at CBRE Group and Wheelock and Company. Moved from Hong Kong to London. Active thought leader (LinkedIn presence). |
+| **Jerome Tse** | Co-founder & CTO | 2x founder; technical co-founder. |
+| **Tsz Hoi Lee** | Co-founder | Limited public information. |
+
+**Assessment:** 
+- ✅ Repeat founders with operational experience
+- ✅ CEO is hands-on with product (dogfooding, active on social)
+- ⚠️ No obvious deep tech/AI or media industry pedigree
+- ⚠️ Team appears lean (6 people reported) — capital efficient but potentially under-resourced for competitive market
+
+---
+
+## TRACTION
+
+| Metric | Value |
+|--------|-------|
+| **Revenue** | **$660K ARR** (2025, per Latka) |
+| **Team Size** | 6 people |
+| **Revenue/Employee** | ~$110K |
+| **Product Hunt** | **#1 Product of the Week** (Aug 12, 2024); #3 of the day (Sept 2023); 37 community reviews |
+| **G2/AppSumo** | 4.6 rating; positive reviews citing ease of use, efficient video creation |
+| **Funding Status** | **Unfunded** (bootstrapped); participated in Burning Heroes Pitch Competition London (Feb 2024) |
+
+**Assessment:** 
+- ✅ Strong capital efficiency ($660K ARR with 6-person team, no funding)
+- ✅ Product-market fit signals from Product Hunt success and positive reviews
+- ⚠️ No institutional funding creates runway risk and limits ability to compete on marketing/sales
+- ⚠️ Revenue scale still early-stage; unclear growth rate trajectory
+
+---
+
+## RISKS
+
+### 1. **Competition/Funding Gap (HIGH)**
+OpusClip just raised $32M at $215M valuation with a very similar product positioning. CapCut has 1B+ users. Runway and Descript have massive war chests. Jupitrr is unfunded competing against well-capitalized players in a land-grab market. Without significant funding, they risk being outspent on growth.
+
+### 2. **Feature Commoditization (MEDIUM-HIGH)**
+Auto B-roll generation and AI editing features are rapidly becoming commoditized. CapCut, OpusClip, Pictory, and even Canva are adding similar capabilities. Defensibility beyond "workflow" positioning is unclear. No proprietary AI models mentioned.
+
+### 3. **Platform Dependency (MEDIUM)**
+Relies on third-party stock libraries (Getty-style content). If major stock providers restrict API access or pricing increases, margins could compress. Also dependent on social platform APIs for publishing features.
+
+---
+
+## VERDICT
+
+**📋 WATCH**
+
+---
+
+## RATIONALE
+
+Jupitrr AI demonstrates impressive capital efficiency ($660K ARR with 6 people, bootstrapped) and clear product-market fit with marketing teams needing high-volume video content. However, the company is **unfunded in an intensely competitive market** where OpusClip (similar positioning) just raised $32M and larger players like Runway ($5.3B) and CapCut are expanding rapidly. 
+
+The "VideoOS" positioning as an all-in-one workflow tool for marketing teams is smart differentiation, but **defensibility is unclear** without proprietary AI or meaningful scale. We recommend watching for: (1) successful seed/Series A raise to prove institutional conviction, (2) demonstrated revenue growth rate (>100% YoY), and (3) evidence of enterprise customer wins that validate workflow differentiation over point solutions.
